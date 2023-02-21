@@ -15,14 +15,18 @@ removeAll.addEventListener("click", function (e) {
 });
 
 async function getGif(keyword) {
-  const res = await axios.get(
+  /*const res = await axios.get(
     `http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=ay2JpZMux8eFE7kr9UYeEfOqlhTjzqHX`
-  );
-  console.log(res.data)
+  );*/
+  axios.get(`http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=ay2JpZMux8eFE7kr9UYeEfOqlhTjzqHX`)
+  .then(res => console.log(res.data))
+  
+  //let resData = Array.from(res.data);
+  //console.log(res.data)
   let randomNum = Math.floor(Math.random()*50)
   // console.log(res.data[1].images.original.url);
-  const { resData } = res.data;
-  console.log(resData[randomNum].images.original.url); //return when it works
+  // const { resData } = res.data;
+  //console.log(resData[randomNum].url); //return when it works
 }
 
 const imageDiv = document.querySelector("#images");
